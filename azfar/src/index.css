@@ -68,7 +68,7 @@
 .haqqimizda_info_img{
   margin: auto;
 }
-.haqqimizda_info_img h1{
+.haqqimizda_info_img h2{
   color: white;
   margin-bottom: 20px;
 }
@@ -83,7 +83,7 @@
 }
 .why_us{
   width: 100%;
-  padding-top: 50px;
+  margin-top: 80px;
   padding-bottom: 30px;
 }
 .why_us_y{
@@ -91,7 +91,7 @@
   margin: auto;
   text-align: center;   
 }
-.why_us_y h1{
+.why_us_y h2{
   font-size: 30px;
   color: #dc265a;
 }
@@ -124,6 +124,23 @@
   text-align: left;
   margin-left: 30px;
 }
+.haqqimizda_info a{
+  background-color: #dc265a;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.2cm;
+  padding: 10px 20px;
+  transition: 0.5s;
+  font-size: 18px;
+}
+.haqqimizda_info a:hover{
+  background-color: white;
+  color: #dc265a;
+}
+.haq_a{
+  margin-top: 40px;
+}
 .type_p{
   display: flex;
   align-items: center;
@@ -133,7 +150,7 @@
   color: white;
   padding-top: 50px;
 }
-.stadion h1{
+.stadion h2{
   font-size: 30px;
   text-align: center;
 }
@@ -173,6 +190,398 @@
 .stadion_bir_txt a{
   text-decoration: none;
 }
+
+
+
+
+/* slideshow */
+
+@keyframes tonext {
+75% {
+  left: 0;
+}
+95% {
+  left: 100%;
+}
+98% {
+  left: 100%;
+}
+99% {
+  left: 0;
+}
+}
+
+@keyframes tostart {
+75% {
+  left: 0;
+}
+95% {
+  left: -300%;
+}
+98% {
+  left: -300%;
+}
+99% {
+  left: 0;
+}
+}
+
+@keyframes snap {
+96% {
+  scroll-snap-align: center;
+}
+97% {
+  scroll-snap-align: none;
+}
+99% {
+  scroll-snap-align: none;
+}
+100% {
+  scroll-snap-align: center;
+}
+}
+* {
+box-sizing: border-box;
+scrollbar-color: transparent transparent; /* thumb and track color */
+scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+width: 0;
+}
+
+*::-webkit-scrollbar-track {
+background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+background: transparent;
+border: none;
+}
+
+* {
+-ms-overflow-style: none;
+}
+
+ol, li {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+.zelda{
+padding-top: 70px;
+}
+
+.carousel {
+width: 55%;
+position: relative;
+margin-top: 60px;
+height: 500px;
+margin: auto;
+filter: drop-shadow(0 0 10px #0003);
+
+}
+
+.carousel__viewport {
+width: 100%;
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+display: flex;
+overflow-x: scroll;
+counter-reset: item;
+scroll-behavior: smooth;
+scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+position: relative;
+flex: 0 0 100%;
+width: 100%;
+background-color: #f99;
+counter-increment: item;
+}
+
+.carousel__slide:nth-child(even) {
+background-color: #99f;
+}
+
+.carousel__slide:before {
+content: counter(item);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate3d(-50%,-40%,70px);
+color: #fff;
+font-size: 2em;
+}
+
+.carousel__snapper {
+position: absolute;
+width: 100%;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+.carousel__snapper {
+  animation-name: tonext, snap;
+  animation-timing-function: ease;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.carousel__slide:last-child .carousel__snapper {
+  animation-name: tostart, snap;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.carousel__snapper {
+  animation-name: none;
+}
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+animation-name: none;
+}
+
+.carousel__navigation {
+position: absolute;
+right: 0;
+bottom: 0;
+left: 0;
+text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+display: inline-block;
+}
+
+.carousel__navigation-button {
+display: inline-block;
+width: 1.5rem;
+height: 1.5rem;
+background-color: #333;
+background-clip: content-box;
+border: 0.25rem solid transparent;
+border-radius: 50%;
+font-size: 0;
+transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+top: 0;
+margin-top: 37.5%;
+width: 4rem;
+height: 4rem;
+transform: translateY(-50%);
+border-radius: 50%;
+font-size: 0;
+outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+left: -1rem;
+}
+
+.carousel::after,
+.carousel__next {
+right: -1rem;
+}
+
+.carousel::before,
+.carousel::after {
+content: '';
+z-index: 1;
+background-color: none;
+background-size: 1.5rem 1.5rem;
+background-repeat: no-repeat;
+background-position: center center;
+font-size: 2.5rem;
+line-height: 4rem;
+text-align: center;
+pointer-events: none;
+}
+
+.carousel::before {
+background-image: url("https://victorycup.ru/wp-content/uploads/2019/01/aquatic-palace7.jpeg");
+}
+
+.carousel::after {
+background-image: url("https://victorycup.ru/wp-content/uploads/2019/01/aquatic-palace7.jpeg");
+}
+
+
+/*  */
+
+table {
+border: 1px solid #ccc;
+border-collapse: collapse;
+width: 60%;
+margin: auto;
+padding-top: 80px;
+box-shadow: 0px 0px 1px;
+table-layout: fixed;
+}
+
+.admin{
+padding-top:100px;
+margin-bottom: 50px;
+}
+table caption {
+font-size: 1.5em;
+margin: .5em 0 .75em;
+}
+
+table tr {
+background-color: #f8f8f8;
+border: 1px solid #ddd;
+padding: .35em;
+}
+
+table th,
+table td {
+padding: .625em;
+text-align: center;
+}
+
+table th {
+font-size: .85em;
+letter-spacing: .1em;
+text-transform: uppercase;
+}
+.Log_in{
+width: 100%;
+height: 100vh;
+background-color: #dc265a;
+display: flex;
+align-items: center;
+}
+.Log_in_all{
+margin: auto;
+display: flex;
+justify-content: space-around;
+padding: 10px;
+}
+.Log_in_all_img{
+display: flex;
+margin-right: 70px;
+align-items: center;
+}
+.Log_in_all_txt{
+text-align: center;
+color: white;
+margin-left: 140px;
+}
+.link_to_register{
+text-align: right;
+margin-top: 20px;
+}
+.Log_in_all_txt h2{
+margin-bottom: 20px;
+}
+.input_login{
+margin-bottom: 30px;
+}
+.input_login input{
+width: 270px;
+padding-left: 5px;
+height: 33px;
+}
+.All_stadiums{
+padding-top: 110px;
+background-color: #f5f5f5;
+}
+.stadion_bir{
+margin-bottom: 40px;
+}
+.All_stadiums h2{
+text-align: center;padding-bottom: 0px;
+}
+.stadion_all{
+flex-wrap: wrap;
+}
+.Log_in_all_txt button{
+width: 270px;
+height: 35px;
+background-color: #dc265a;
+color: white;
+font-size: 16px;
+border: 1px solid white;
+transition: 0.5s;
+}
+.Log_in_all_txt button:hover{
+border: 1px solid #dc265a;
+color: #dc265a;
+background-color: white;
+}
+
+
+@media screen and (max-width: 600px) {
+table {
+  border: 0;
+}
+
+table caption {
+  font-size: 1.3em;
+}
+.admin{
+  background-color: #f5f5f5;
+}
+table thead {
+  border: none;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+table tr {
+  border-bottom: 3px solid #ddd;
+  display: block;
+  margin-bottom: .625em;
+}
+
+table td {
+  border-bottom: 1px solid #ddd;
+  display: block;
+  font-size: .8em;
+  text-align: right;
+}
+
+table td::before {
+  /*
+  * aria-label has no advantage, it won't be read inside a table
+  content: attr(aria-label);
+  */
+  content: attr(data-label);
+  float: left;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+table td:last-child {
+  border-bottom: 0;
+}
+}
+
+
+
 .contact_us{
   width: 100%;
   padding-top: 70px;
@@ -210,6 +619,7 @@ color: #dc265a;
 }
 .footer{
   width: 100%;
+  position:absolute;
   background-color: #dc265a;
   padding-top: 0px;
   display: flex;
@@ -364,3 +774,79 @@ color: #dc265a;
       width: 48%;
   }
 }
+
+.stadion_sifarisi{
+  width: 100%;
+  text-align: center;
+  padding-top: 120px;
+  background-color: #f5f5f5;
+}
+.stadion_sifarisi h1{
+  font-size: 30px;
+  padding-bottom: 50px;
+}
+.stadion_sifarisi_all{
+  width: 80%;
+  justify-content: space-around;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  padding-bottom: 100px;
+}
+.stadion_sifarisi_img img{
+  width: 370px;
+  border-radius: 0.3cm;
+}
+.stadion_sifarisi_img{
+  padding: 10px;
+  background-color: white;
+  border-radius: 0.5cm;
+  box-shadow: 0px 0px 1px;
+}
+.stadion_sifarisi_txt{
+  text-align: left;
+  background-color: white;
+  padding: 15px 30px;
+  box-shadow: 0px 0px 1px;
+  border-radius: 0.3cm;
+}
+.stadion_sifarisi_txt label i{
+  color: #dc265a;
+  font-size: 20px;
+}
+.stadion_sifarisi_txt label p {
+  margin-left: 10px;
+}
+.stadion_sifarisi_txt label{
+  font-size: 14px;
+  align-items: center;
+  display: flex;
+}
+.b{
+  margin-bottom: 30px;
+}
+.b select{
+  width: 180px;
+}
+.c{
+  display: flex;
+}
+.d{
+  margin-right: 120px;
+}
+.v{
+  display: flex;
+  align-items: center;
+}
+.v button{
+  width: 160PX;
+  color: white;
+  background-color: #dc265a;
+  height: 40PX;
+  margin-top: 10PX;
+  transition: 0.5S;
+}
+.v button:hover{
+  background-color: #252525;
+}
+

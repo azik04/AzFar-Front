@@ -12,10 +12,10 @@ const Nav = () => {
             </div>
             <div className="navbar_menu">
                 <ul>
-                    <li><NavLink to="/">Haqqimizda</NavLink></li>
+                    <li><NavLink to="/Home">Home</NavLink></li>
                     <li><NavLink to="/Contact">Elage</NavLink></li>
-                    <li><NavLink to="/">Sifarisler</NavLink></li>
-                    <li><NavLink to="/">Admin</NavLink></li>
+                    <li><NavLink to="/Stadiums">Stadiums</NavLink></li>
+                    <li><NavLink to="/Admin">Admin</NavLink></li>
                 </ul>
             </div>
             <div className="navbar_logIn">
