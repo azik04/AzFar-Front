@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   box-shadow: 0px 0px 1px;
+  z-index: 10;
   position: fixed;
 }
 .nav_more{
@@ -155,15 +156,25 @@
   text-align: center;
 }
 .stadion_all{
-  width: 70%;
+  width: 82%;
   margin: auto;
   padding-top: 80px;
   display: flex;
   justify-content: space-around;
   padding-bottom: 50px;
 }
+.stadion_sifarisi_input input{
+  width: 240px;
+  height: 32px;
+}
+.stadion_sifarisi_input{
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  margin-right: 100px;
+}
 .stadion_bir{
-  width: 22%;
+  width: 21%;
   background-color: white;
   padding-bottom: 10px;
   border: 1px solid grey;
@@ -581,7 +592,9 @@ table td:last-child {
 }
 
 
-
+.stadion_bir{
+  text-decoration: none;
+}
 .contact_us{
   width: 100%;
   padding-top: 70px;

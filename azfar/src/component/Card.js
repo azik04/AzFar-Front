@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { Link } from 'react-router-dom';
-
-const Card = () => {
+import axios from 'axios';
+function Card()  {
+    useEffect(() =>{
+        const Stad = async() => {
+            try{
+                axios.get(`https://localhost:7130/api/Stadium`).then((e)=>{
+                    console.log(e.data);
+                })
+            }
+            catch(error){
+                console.log(error);
+            }
+        };
+        Stad();
+    },[1])
     return (
         <Link to="/StadionInfo" className="stadion_bir">
             <div className="stadion_bir_img">
