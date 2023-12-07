@@ -1,30 +1,39 @@
-import React, { useEffect} from 'react';
+import axios from 'axios'
+import React, { Component} from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-function Card()  {
-    useEffect(() =>{
-        const Stad = async() => {
-            try{
-                axios.get(`https://localhost:7130/api/Stadium`).then((e)=>{
-                    console.log(e.data);
-                })
-            }
-            catch(error){
-                console.log(error);
-            }
-        };
-        Stad();
-    },[1])
+class Card extends Component{
+
+    state = {
+        cards : [
+        ]
+    }
+    componentDidMount(){
+        axios.get('https://localhost:7130/api/Stadium/GetStadiums').then(res=>{
+            console.log(res.data)
+            this.setState({cards : res.data})
+        })
+    }
+    render(){
     return (
-        <Link to="/StadionInfo" className="stadion_bir">
-            <div className="stadion_bir_img">
-                <img src="http://www.azfar.az/files/stadium/main_galery_stadium_146668817525804.jpg" alt="" width="100%"/>
-            </div>
-            <div className="stadion_bir_txt">
-                <p>267 nomreli mekteb</p>
-            </div>
-        </Link>
+        <div className="stadion_all">
+        {
+            this.state.cards.map(card=>{
+                return(
+                    <Link to="/StadionInfo" className="stadion_bir" key={card.id}>
+                        <div className="stadion_bir_img">
+                        <img src="http://www.azfar.az/files/stadium/main_galery_stadium_146668817525804.jpg" alt="" width="100%"/>
+                        </div>
+                        <div className="stadion_bir_txt">
+                        <p>{card.name}</p>
+                        </div>
+                    </Link>
+                )
+            })
+        }
+        
+        </div>
     );
+}
 }
 
 export default Card;

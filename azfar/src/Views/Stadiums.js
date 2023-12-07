@@ -10,17 +10,9 @@ const Stadiums = () => {
         <div className='stadion_sifarisi_input'>
             <input type="text"></input>
         </div>
-        <div class="stadion_all">
+        
             <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-        </div>
+            
     </section>
     );
 }
