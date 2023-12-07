@@ -1,6 +1,7 @@
 import React from 'react';
 
-const StadionInfo = () => {
+const StadionInfo = ({ location }) => {
+    const stadium = location?.state?.stadium;
     return (
         <section className="stadion_sifarisi">
             <h1>Sifaris et!!!</h1>
@@ -12,12 +13,12 @@ const StadionInfo = () => {
                     <div className="c">
                         <div className="d">
                             <div className="b">
-                                <label for=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
+                            <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
-                                <p><b> #267 Nomreli mekteb</b></p>
+                                <p><b>{stadium.name}</b></p>
                             </div>
                             <div className="b">
-                                <label for=""><i className="fa-solid fa-clock"></i><p>Vaxti sec</p></label>
+                            <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
                                 <select name="" id="">
                                     <option value=""><p>aa</p></option>
@@ -25,29 +26,29 @@ const StadionInfo = () => {
                                 </select>
                             </div>
                             <div className="b">
-                                <label for=""><i className="fa-solid fa-money-bill"></i><p>Giymet</p></label>
+                            <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
                                 <p>50$ - 60$</p>
                             </div>
                             <div className="b">
-                                <label for=""><i className="fa-solid fa-location-dot"></i><p>Unvan</p></label>
+                                <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
                                 <p>9 mkrn Mir celal kucesi 59</p>
                             </div>
                         </div>
                         <div className="e">
                             <div className="b">
-                                <label for=""><i className="fa-solid fa-ruler"></i><p>Olcu</p></label>
+                            <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <b />
                                 <p>Длина - 40м</p>
                             </div>
                             <div className="b">
-                                <label for=""><i className="fa-solid fa-face-surprise"></i><p>Bonus</p></label>
+                            <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
                                 <p>Pulsuz cay elave olunur</p>
                             </div>
                             <div className="b">
-                                <label for=""><i className="fa-solid fa-camera-retro"></i><p>Cekilis</p></label>
+                            <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
                                 <p>Pulsuz cekilis</p>
                             </div>
