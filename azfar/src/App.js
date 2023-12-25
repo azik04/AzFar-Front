@@ -6,6 +6,8 @@ import Layout from "./Views/Layout"
 import StadionInfo from "./Views/StadionInfo"
 import Stadiums from './Views/Stadiums';
 import Admin from './Views/Admin';
+import Register from './Views/Register';
+import LogIn from './Views/LogIn';
 const App = () => {
     return (
         <div>
@@ -15,9 +17,11 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="Home" element={<Home />} />
           <Route path="Contact" element={<Contact />} />
-          <Route path="StadionInfo" element={<StadionInfo />} />
+          <Route path="StadionInfo/:id" element={<StadionInfo />} />
           <Route path="Stadiums" element={<Stadiums />} />
           <Route path='Admin' element={<Admin />} />
+          <Route path='Register' element={<Register />} />
+          <Route path='LogIn' element={<LogIn />} />
         </Route>
       </Routes>
     </BrowserRouter>

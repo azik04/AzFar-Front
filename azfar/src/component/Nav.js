@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, Link} from 'react-router-dom';
+
 const Nav = () => {
     return (
     <nav>
@@ -17,11 +18,11 @@ const Nav = () => {
                     <li><NavLink to="/Stadiums">Stadiums</NavLink></li>
                     <li><NavLink to="/Admin">Admin</NavLink></li>
                 </ul>
-            </div>
-            <div className="navbar_logIn">
+            </div><samp></samp>
+            <Link to="/LogIn" className="navbar_logIn">
                 <i className="fa-solid fa-user"></i>
                 <p>Log In</p>
-            </div>
+            </Link>
 
         </div>
     </nav>

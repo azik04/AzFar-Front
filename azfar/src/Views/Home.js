@@ -14,7 +14,7 @@ const Home = () => {
                 <p>Bu istiqamətdə Azfar Group beynəlxalq təcrübədən (dəqiq mühəndis hesablamaları) yararlanır, müasir standartlara cavab verən tikinti materiallarından (son nəsil süni ot örtüyü, xüsusi konstruksiyalar) istifadə edir və müştərilərə təklif etdiyi xidmətlər paketini (istirahət zonası, avtodayanacaq, açıq və qapalı tipli stadionlar) daim genişləndirir.</p>
             </div>
             <div class="haq_a">
-                <a href="/stadiums.html">Stadionu sec!</a>
+                <a href="http://localhost:3000/Stadiums">Stadionu sec!</a>
             </div>
         </div>
     </header>
@@ -124,8 +124,6 @@ const Home = () => {
     <section className="stadion">
         <h2>Stadionu sifaris ele!!!</h2>
         <div className="stadion_all">
-            <Card/>
-            <Card/>
             <Card/>
         </div>
     </section>

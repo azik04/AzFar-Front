@@ -27,7 +27,7 @@ class Card extends Component {
                 {this.state.cards.map(card => (
                     <Link
                         to={{
-                            pathname: "/StadionInfo",
+                            pathname: "/StadionInfo/" +card.id,
                             state: { stadium: card }
                         }}
                         className="stadion_bir"

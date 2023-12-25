@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.15.0"
+    "eslint": "version_number",
+    "eslint-config-react-app": "version_number"
   }
 }

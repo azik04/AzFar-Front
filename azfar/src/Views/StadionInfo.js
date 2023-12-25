@@ -1,7 +1,44 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const StadionInfo = ({ location }) => {
-    const stadium = location?.state?.stadium;
+const StadionInfo = () => {
+    const [stadiumData, setStadiumData] = useState({});
+    const [orderTimes, setOrderTimes] = useState([]);
+    const [selectedOrderTime, setSelectedOrderTime] = useState('');
+    const { id } = useParams();
+
+    const handleOrderButtonClick = async () => {
+        try {
+            const response = await axios.post('https://localhost:7130/api/Orders', {
+                stadiumId: id,
+                selectedOrderTime: selectedOrderTime
+            });
+
+            console.log('Order placed successfully:', response.data);
+        } catch (error) {
+            console.error('Error placing order:', error);
+        }
+    };
+
+    useEffect(() => {
+        axios.get(`https://localhost:7130/api/Stadium/GetStadium?id=${id}`)
+            .then(res => {
+                console.log(res.data.result.data);
+                setStadiumData(res.data.result.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+            axios.get(`https://localhost:7130/api/OrderTime`)
+            .then(res => {
+                console.log(res.data);
+                setOrderTimes(res.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, [id]);
     return (
         <section className="stadion_sifarisi">
             <h1>Sifaris et!!!</h1>
@@ -15,14 +52,16 @@ const StadionInfo = ({ location }) => {
                             <div className="b">
                             <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
-                                <p><b>{stadium.name}</b></p>
+                                <p><b>{stadiumData.name}</b></p>
                             </div>
                             <div className="b">
                             <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
-                                <select name="" id="">
-                                    <option value=""><p>aa</p></option>
-                                    <option value=""><p>bb</p></option>
+                                <select name="" id=""  value={selectedOrderTime}
+                                    onChange={(e) => setSelectedOrderTime(e.target.value)}>
+                                    {orderTimes.map(({ id, orderTimes: orderTimes }, index) => (
+                                    <option key={index} value={id}><p>{orderTimes}</p></option>
+                                    ))}
                                 </select>
                             </div>
                             <div className="b">
@@ -33,7 +72,7 @@ const StadionInfo = ({ location }) => {
                             <div className="b">
                                 <label htmlFor=""><i className="fa-solid fa-futbol"></i><p>Stadium</p></label>
                                 <br />
-                                <p>9 mkrn Mir celal kucesi 59</p>
+                                <p>{stadiumData.adress}</p>
                             </div>
                         </div>
                         <div className="e">
@@ -53,7 +92,7 @@ const StadionInfo = ({ location }) => {
                                 <p>Pulsuz cekilis</p>
                             </div>
                             <div className="v">
-                                <button><p>Sifaris et!</p></button>
+                                <button onClick={handleOrderButtonClick}><p>Sifaris et!</p></button>
                             </div>
 
                         </div>
