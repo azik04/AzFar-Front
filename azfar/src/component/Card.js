@@ -9,7 +9,6 @@ class Card extends Component {
             cards: []
         };
     }
-
     componentDidMount() {
         axios.get('https://localhost:7130/api/Stadium/GetStadiums')
             .then(res => {
@@ -19,6 +18,7 @@ class Card extends Component {
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
+            
     }
 
     render() {
@@ -34,7 +34,7 @@ class Card extends Component {
                         key={card.id}
                     >
                         <div className="stadion_bir_img">
-                            <img src="http://www.azfar.az/files/stadium/main_galery_stadium_146668817525804.jpg" alt="" width="100%" />
+                        <img src="{card.stadiumPhoto.stadiumPhoto}" alt="" width="100%" />
                         </div>
                         <div className="stadion_bir_txt">
                             <p>{card.name}</p>

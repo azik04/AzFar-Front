@@ -1,7 +1,9 @@
 import React from 'react';
 import Card from '../component/Card'
-
+import { useEffect, useState } from 'react';
 const Home = () => {
+    const [filteredStadiums, setFilteredStadiums] = useState([]);
+
     return (
 <div>
     <header className="haqqimizda">

@@ -39,7 +39,9 @@ const LogIn = () => {
                 <Link to="/Register">Register</Link>
               </div>
               <div className="LogIn_txt_inp">
-                <button onClick={handleLogin}>Log IN</button>
+                <Link to="/Home">
+                  <button onClick={handleLogin}>Log IN</button>
+                </Link>
               </div>
             </div>
           </div>

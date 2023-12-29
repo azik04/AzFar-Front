@@ -38,7 +38,6 @@ const Admin = () => {
             <thead>
               <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Number</th>
                 <th scope="col">Stadium</th>
                 <th scope="col">Time</th>
               </tr>
@@ -47,7 +46,6 @@ const Admin = () => {
               {userData.map((order, index) => (
                 <tr key={index}>
                   <td data-label="Account">{order.fullName}</td>
-                  <td data-label="Due Date">{order.stadiumId}</td>
                   <td data-label="Amount">{order.stadiumId}</td>
                   <td data-label="Period">{order.orderTimeId}</td>
                 </tr>
@@ -72,7 +70,7 @@ const Admin = () => {
           <br />
           <label htmlFor="" className="post_st_lb">Stadium Photo</label>
           <br />
-          <input type="file" className="post_st_inp" required onChange={e => setPhoto(e.target.value)}  />
+          <input type="file" className="post_st_inp"   />
           <br />
           <button className="post_st_bt" onClick={handleStadiums}>Add Stadium</button>
         </form>
