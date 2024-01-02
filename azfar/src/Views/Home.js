@@ -124,7 +124,7 @@ const Home = () => {
     <section className="stadion">
         <h2>Stadionu sifaris ele!!!</h2>
         <div className="stadion_all">
-            <Card/>
+        <Card numberOfCards={3} />
         </div>
     </section>
 </div>

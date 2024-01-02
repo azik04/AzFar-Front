@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
-
+  const navigate = useNavigate();
   const[name, setName] = useState();
   const[phone, setPhone] = useState();
-  const[password, setPassword] = useState()
+  const[password, setPassword] = useState();
   const handleRegister = async () => {
     try {
       const response = await axios.post('https://localhost:7130/api/Account/register', {
@@ -14,10 +15,16 @@ const Register = () => {
         password: password, 
       });
       console.log(response.data);
-    } catch (error) {
+
+      if (response.data.success) {
+        navigate('/LogIn');
+    } 
+
+  }
+    catch (error) {
       console.error('Error during Register:', error);
     }
-  };
+  }
     return (
         <section className="LogIn">
       <div className="img_txt">
@@ -38,6 +45,9 @@ const Register = () => {
             <div className="LogIn_txt_inp">
               <input type="password" placeholder="Password" required onChange={e => setPassword(e.target.value)} />
             </div>
+            <div className="aalang">
+                <Link to="/LogIn">LogIn</Link>
+              </div>
             <div className="LogIn_txt_inp">
               <button onClick={handleRegister}>Register</button>
             </div>

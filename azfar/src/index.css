@@ -735,29 +735,32 @@ color: #dc265a;
 .v button:hover{
   background-color: #252525;
 }
+.navbar_logIn{
+  text-decoration: none;
+}
 
 @media only screen and (max-width: 600px) {
-  .navbar_menu{
-      display: none;
+  .navbar{
+    bottom: 0px;
   }
   .nav_logo{
-      margin-left: 0px;
-  }
-  .navbar{
-      justify-content: space-around;
-  }
-  .nav_more{
-      display: block;
-      width: 20%;
-      color: white;
-     
+    display: none;
   }
   .navbar_logIn{
-      margin-right: 0px;
-      width: 20%;
+    display: none;
   }
   .navbar_logIn p{
-      display: none;
+    display: none;
+  }
+  .navbar_menu{
+    justify-content: space-around;
+  }
+  .navbar_menu li{
+  border-right: 1px solid black;
+  padding-right: 15px;
+  }
+  .contact_one{
+    width: 95%;
   }
   .haqqimizda_info{
       width: 80%;

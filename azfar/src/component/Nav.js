@@ -3,6 +3,7 @@ import { NavLink, Link} from 'react-router-dom';
 
 const Nav = () => {
     return (
+    <header></header>
     <nav>
         <div className="navbar">
             <div className="nav_more">
@@ -18,8 +19,8 @@ const Nav = () => {
                     <li><NavLink to="/Stadiums">Stadiums</NavLink></li>
                     <li><NavLink to="/Admin">Admin</NavLink></li>
                 </ul>
-            </div><samp></samp>
-            <Link to="/LogIn" className="navbar_logIn">
+            </div>
+            <Link to="/LogIn" class="navbar_logIn">
                 <i className="fa-solid fa-user"></i>
                 <p>Log In</p>
             </Link>
