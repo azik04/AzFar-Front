@@ -16,7 +16,8 @@ const Admin = () => {
         console.error('Error fetching data:', error);
       });
   }, []); 
-  const handleStadiums = async () => {
+  const handleStadiums = async (event) => {
+    event.preventDefault()
     try {
       const response = await axios.post('https://localhost:7130/api/Stadium/CreateStadium', {
         name: name,
@@ -58,7 +59,7 @@ const Admin = () => {
         <button className="add_st_bt">+</button>
       </div>
       <div className="hahahak">
-        <form action="" className="post_st">
+        <form action="post" className="post_st">
           <h2>New Stadium!!</h2>
           <label htmlFor="" className="post_st_lb">Stadium Name</label>
           <br />
@@ -68,11 +69,11 @@ const Admin = () => {
           <br />
           <input type="text" placeholder="Post Stadium Adress" className="post_st_inp" required onChange={e => setAdress(e.target.value)} />
           <br />
-          <label htmlFor="" className="post_st_lb">Stadium Photo</label>
+          <label htmlFor="" className="post_st_lb" required onChange={e => setPhoto(e.target.value)}>Stadium Photo</label>
           <br />
           <input type="file" className="post_st_inp"   />
           <br />
-          <button className="post_st_bt" onClick={handleStadiums}>Add Stadium</button>
+          <button className="post_st_bt" onClick={(event) => handleStadiums(event)}>Add Stadium</button>
         </form>
       </div>
     </section>

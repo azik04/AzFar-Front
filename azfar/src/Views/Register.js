@@ -1,25 +1,39 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-const Register = () => {
+import { Link, useNavigate } from 'react-router-dom';
 
-  const[name, setName] = useState();
-  const[phone, setPhone] = useState();
-  const[password, setPassword] = useState()
+const Register = () => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [nameError, setNameError] = useState('');
+  const navigate = useNavigate();
+
   const handleRegister = async () => {
     try {
       const response = await axios.post('https://localhost:7130/api/Account/register', {
         name: name,
         phone: phone,
-        password: password, 
+        password: password,
       });
-      console.log(response.data);
+  
+      if (response.data && response.data.message === 'success') {
+        navigate('/LogIn');
+      } else {
+        console.error('Registration failed. Unexpected response structure:', response.data);
+      }
     } catch (error) {
-      console.error('Error during Register:', error);
+      console.error('Error during registration:', error);
+      setPhoneError('Phone number not found.');
+      setPasswordError('Password is wrong');
+      setNameError('Name has been used');
     }
   };
-    return (
-        <section className="LogIn">
+
+  return (
+    <section className="LogIn">
       <div className="img_txt">
         <div className="LogIn_img">
           <img src="http://www.azfar.az/img/footer-logo.png" alt="" />
@@ -30,22 +44,28 @@ const Register = () => {
               <h2>Register Now!</h2>
             </div>
             <div className="LogIn_txt_inp">
-              <input type="text" placeholder="UserName" required onChange={e => setName(e.target.value)} />
+              <input type="text" placeholder="UserName" required onChange={(e) => setName(e.target.value)} />
+              <br />
+              <span className="error_sp">{nameError}</span>
             </div>
             <div className="LogIn_txt_inp">
-              <input type="text" placeholder="Phone Number" required onChange={e => setPhone(e.target.value)} />
+              <input type="text" placeholder="Phone Number" required onChange={(e) => setPhone(e.target.value)} />
+              <br />
+              <span className="error_sp">{phoneError}</span>
             </div>
             <div className="LogIn_txt_inp">
-              <input type="password" placeholder="Password" required onChange={e => setPassword(e.target.value)} />
+              <input type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
+              <br />
+              <span className="error_sp">{passwordError}</span>
             </div>
             <div className="LogIn_txt_inp">
-              <button onClick={handleRegister}>Register</button>
+              <button onClick={() => handleRegister()}>Register</button>
             </div>
           </div>
         </div>
       </div>
     </section>
-    );
+  );
 }
 
 export default Register;

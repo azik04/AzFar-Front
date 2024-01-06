@@ -1,49 +1,46 @@
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Card extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cards: []
-        };
-    }
-    componentDidMount() {
-        axios.get('https://localhost:7130/api/Stadium/GetStadiums')
-            .then(res => {
-                console.log(res.data);
-                this.setState({ cards: res.data });
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-            
-    }
+const Card = ({ numberOfCards }) => {
+  const [cards, setCards] = useState([]);
 
-    render() {
-        return (
-            <div className="stadion_all">
-                {this.state.cards.map(card => (
-                    <Link
-                        to={{
-                            pathname: "/StadionInfo/" +card.id,
-                            state: { stadium: card }
-                        }}
-                        className="stadion_bir"
-                        key={card.id}
-                    >
-                        <div className="stadion_bir_img">
-                        <img src="{card.stadiumPhoto.stadiumPhoto}" alt="" width="100%" />
-                        </div>
-                        <div className="stadion_bir_txt">
-                            <p>{card.name}</p>
-                        </div>
-                    </Link>
-                ))}
-            </div>
-        );
-    }
-}
+  useEffect(() => {
+    axios.get('https://localhost:7130/api/Stadium/GetStadiums')
+      .then(res => {
+        console.log(res.data);
+        setCards(res.data.slice(0, numberOfCards));
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, [numberOfCards]);
+
+  return (
+    <div className="stadion_all">
+      {cards.map(card => (
+        <Link
+          to={{
+            pathname: `/StadionInfo/${card.id}`,
+            state: { stadium: card }
+          }}
+          className="stadion_bir"
+          key={card.id}
+        >
+          <div className="stadion_bir_img">
+            <img
+             src={`https://localhost:7130/uploads/${card.stadiumPhoto[0]?.stadiumPhoto || "default.jpg"}`}
+              alt=""
+              width="100%"
+            />
+          </div>
+          <div className="stadion_bir_txt">
+            <p>{card.name}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+};
 
 export default Card;
