@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 const Card = ({ numberOfCards }) => {
   const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    axios.get('https://localhost:7130/api/Stadium/GetStadiums')
-      .then(res => {
-        console.log(res.data);
-        setCards(res.data.slice(0, numberOfCards));
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, [numberOfCards]);
+useEffect(() => {
+  axios.get('https://localhost:7130/api/Stadium/GetStadiums')
+    .then(res => {
+      console.log(res.data);
+      setCards(res.data.slice(0, numberOfCards));
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}, [numberOfCards]);
 
   return (
     <div className="stadion_all">
@@ -28,11 +28,15 @@ const Card = ({ numberOfCards }) => {
           key={card.id}
         >
           <div className="stadion_bir_img">
-            <img
-             src={`https://localhost:7130/uploads/${card.stadiumPhoto[0]?.stadiumPhoto || "default.jpg"}`}
-              alt=""
-              width="100%"
-            />
+          {card.stadiumPhoto && card.stadiumPhoto[0] ? (
+  <img
+    src={`https://localhost:7130/api/Stadium/GetStadiums/${card.stadiumPhoto[0].stadiumPhoto}`}
+    alt=""
+    width="100%"
+  />
+) : (
+  <p>No image available</p>
+)}
           </div>
           <div className="stadion_bir_txt">
             <p>{card.name}</p>

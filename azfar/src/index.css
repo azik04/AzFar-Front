@@ -1325,3 +1325,25 @@ text-align: center;
   width:100%;
   margin: auto;
 }
+.navbar_logOut{
+  display: flex;
+  padding: 12px 18px;
+  background-color: #dc265a;
+  border-radius: 0.15cm;
+  color: white;
+  border: 1px solid white;
+  align-items: center;
+ margin-right: 70px;
+ transition: 0.5s;
+ cursor: pointer;
+}
+.navbar_logOut p {
+  padding-left: 9px;
+}
+.navbar_logOut:hover{
+  background-color: white;
+  color: #dc265a;
+}
+.navbar_menu{
+  padding-left: 40px;
+}

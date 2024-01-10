@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-const Sifaris = ({ id }) => {
+const Sifaris = () => {
   const [order, setOrder] = useState('');
   const { id } = useParams();
-
+  console.log('ID:', id);
   useEffect(() => {
     axios.get(`https://localhost:7130/api/Stadium/GetStadium?id=${id}`)
       .then(res => {
-        console.log(res.data.result.data);
-        setOrder(res.data.result.data);
+        console.log(res.data);
+        setOrder(res.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }, [id]);
-
   return (
     <div>
       <div className="sifarispage_one" id={order.id}>

@@ -15,16 +15,16 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='Register' element={<Register />} />
+          <Route path="register" element={<Register />} />
             <Route index element={<LogIn />} />
-            <Route path="LogIn" element={<LogIn />} />
+            <Route path="login" element={<LogIn />} />
           <Route path="/" element={<Layout />}>
-            <Route path="Home" element={<Home />} />
-            <Route path="Contact" element={<Contact />} />
-            <Route path="StadionInfo/:id" element={<StadionInfo />} />
-            <Route path="Stadiums" element={<Stadiums />} />
-            <Route path='Admin' element={<Admin />} />
-            <Route path="Order/:id" element={<Order />} />
+            <Route path="home" element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="stadioninfo/:id" element={<StadionInfo />} />
+            <Route path="stadiums" element={<Stadiums />} />
+            <Route path="admin" element={<Admin />} />
+            <Route path="order" element={<Order />} />
           </Route>
         </Routes>
       </BrowserRouter>
