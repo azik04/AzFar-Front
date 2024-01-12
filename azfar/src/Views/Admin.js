@@ -19,14 +19,14 @@ const Admin = () => {
   const handleStadiums = async (event) => {
     event.preventDefault()
     try {
-      const response = await axios.post('https://localhost:7130/api/Stadium/CreateStadium', {
+      const response = await axios.post(`https://localhost:7130/api/Stadium/CreateStadium`, {
         name: name,
         adress: adress, 
         photo: photo
       });
       console.log(response.data);
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error('Error during post stadium:', error);
     }
   };
 
@@ -59,7 +59,7 @@ const Admin = () => {
         <button className="add_st_bt">+</button>
       </div>
       <div className="hahahak">
-        <form action="" className="post_st">
+        <form action="post" className="post_st">
           <h2>New Stadium!!</h2>
           <label htmlFor="" className="post_st_lb">Stadium Name</label>
           <br />

@@ -4,7 +4,13 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
-.navbar{
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.navbar {
   width: 100%;
   padding: 5px 0px;
   background-color: #dc265a;
@@ -17,7 +23,116 @@
 .nav_more{
   display: none;
 }
+.nav_logo {
+  margin-left: 90px;
+  display: block; 
+}
+
+.navbar_menu{
+  margin: auto;
+}
+.navbar_menu ul li{
+  display: inline-block;
+  padding-left: 10px;
+  font-size: 17px;
+}
+.navbar_menu a:hover{
+  color: #252525;
+}
+.navbar_menu a {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+}
+.navbar_logIn{
+  display: flex;
+  color: white;
+  margin-right: 70px;
+  align-items: center;
+  border: 1px solid white;
+  padding: 12px 18px;
+  border-radius: 0.15cm;
+  transition: 0.5s;
+}
+.header_logIn{
+  display: flex;
+  color: white;
+  margin-right: 70px;
+  align-items: center;
+  border: 1px solid white;
+  padding: 12px 18px;
+  border-radius: 0.15cm;
+  transition: 0.5s;
+}
+.navbar_logIn p{
+  margin-left: 10px;
+  padding-left: 5px;
+}
+.header_logIn p{
+  margin-left: 10px;
+  padding-left: 5px;
+}
+.navbar_logIn:hover{
+  background-color: white;
+  color: #dc265a;
+}
+.footer{
+  width: 100%;
+  position:absolute;
+  background-color: #dc265a;
+  padding-top: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer_one{
+  width: 20%;
+  text-align: center;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+}
+.footer_two p{
+  margin: 10px;
+  display: none;
+}
+.footer_two{
+  width: 20%;
+  text-align: center;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+}
+.stadion_melumat{
+  width: 100%;
+  padding-top: 120px;
+}
+.nameng h2{
+  margin: auto;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar{
+  width: 100%;
+  padding: 5px 0px;
+  background-color: #dc265a;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 1px;
+  z-index: 10;
+}
+.nav_more{
+  display: none;
+}
 .nav_logo{
+  margin-left: 90px;
+}
+.header_logo{
   margin-left: 90px;
 }
 .navbar_menu{
@@ -60,6 +175,48 @@
   background-color: white;
   color: #dc265a;
 }
+.header{
+  display: flex;
+  background-color: #dc265a;
+  padding: 5px;
+  width: 100%;
+  justify-content: space-around;
+  display: none;
+}
+@media only screen and (max-width: 700px) {
+  .navbar{
+    position: fixed;
+    bottom: 0px;
+  }
+
+  .header{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    border-bottom: 0.1px solid #252525;
+  }
+  .header_logIn{
+    width: 33%;
+    margin: 0px 30px 0px 0px;
+  }
+  .header_logo{
+    margin: 0px 70px;
+  }
+  .nav_logo{
+    display: none;
+  }
+  .navbar_logIn{
+    display: none;
+  }
+  .navbar_menu ul li{
+    padding: 10px 11px;
+  }
+  .navbar_logIn{
+    display: none;
+  }
+}
+
 .haqqimizda_info{
   background-color: #dc265a;
   text-align: center;
@@ -735,32 +892,37 @@ color: #dc265a;
 .v button:hover{
   background-color: #252525;
 }
-.navbar_logIn{
-  text-decoration: none;
+.error_sp{
+  color: white;
+  font-size: 9px;
+  display: block;
+  text-align: left;
+  padding-left: 20px;
 }
 
-@media only screen and (max-width: 600px) {
-  .navbar{
-    bottom: 0px;
+@media only screen and (max-width: 700px) {
+  .navbar_menu{
+      display: none;
   }
+  
   .nav_logo{
-    display: none;
+      margin-left: 0px;
+  }
+  .navbar{
+      justify-content: space-around;
+  }
+  .nav_more{
+      display: block;
+      width: 20%;
+      color: white;
+     
   }
   .navbar_logIn{
-    display: none;
+      margin-right: 0px;
+      width: 20%;
   }
   .navbar_logIn p{
-    display: none;
-  }
-  .navbar_menu{
-    justify-content: space-around;
-  }
-  .navbar_menu li{
-  border-right: 1px solid black;
-  padding-right: 15px;
-  }
-  .contact_one{
-    width: 95%;
+      display: none;
   }
   .haqqimizda_info{
       width: 80%;
@@ -784,6 +946,9 @@ color: #dc265a;
   .footer_one{
       display: none;
   }
+  .footer{
+    display: none;
+  }
   .footer_two p{
       display: block;
   }
@@ -793,13 +958,35 @@ color: #dc265a;
   .stadion_bir{
       width: 48%;
   }
+  .LogIn_img{
+    display: none;
+  }
+  .carousel{
+    height: 250px;
+    width:80%
+  }
 }
-
 .stadion_sifarisi{
   width: 100%;
   text-align: center;
   padding-top: 120px;
   background-color: #f5f5f5;
+}
+.order_user{
+  width:85%;
+  height: 380px;
+  background-color:black;
+}
+.admin h2 {
+  text-align: center;
+}
+.order{
+  width:80%;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #252525;
+  margin: auto;
+  margin-top: 30px;
 }
 .stadion_sifarisi h1{
   font-size: 30px;
@@ -940,18 +1127,6 @@ color: #dc265a;
   text-align: center;
 }
 
-
-
-
-
-
-
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
 .navbar{
   width: 100%;
   padding: 5px 0px;
@@ -1120,4 +1295,74 @@ text-align: center;
   width: 55px;
   height: 55px;
   font-size: 32px;
+}
+
+.sifarispage{
+  width:55%;
+  margin: auto;
+  }
+.sifarispage_one{
+  width:50%;
+  padding: 5px;
+  border-radius: 0.3cm;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.sifarispage_one_txt{
+  width:40%;
+  margin-left: 30px;
+}
+.sifarispage_one_txt p{
+  margin-bottom: 10px;
+}
+.sifarispage_one_img img{
+  border-radius: 0.25cm;
+}
+.navbar_logOut{
+  display: flex;
+  margin-right: 50px;
+  padding: 12px 13px;
+  align-items: center;
+  color: white;
+  background-color: #dc265a;
+  border: 1px solid white;
+  transition: 0.5s;
+  border-radius: 0.1cm;
+}
+.errors_err{
+  width: 100%;
+  height: 90vh;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.errors_err_err{
+  text-align: center;
+  margin: auto;
+  color: #dc265a;
+}
+.errors_err_err h2{
+  font-size: 17px;
+}
+.errors_err_err i {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+.navbar_logOut p{
+  padding-left: 13px;
+  padding-right: 5px;
+}
+
+.navbar_logOut:hover{
+  background-color: white;
+  color: #dc265a;
+}
+.sifarispage_naming{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dc265a;
+  width:100%;
+  margin: auto;
 }

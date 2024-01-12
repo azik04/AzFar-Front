@@ -8,19 +8,20 @@ const StadionInfo = () => {
     const [selectedOrderTime, setSelectedOrderTime] = useState('');
     const { id } = useParams();
 
-    const handleOrderButtonClick = async () => {
+    const handleOrderButtonClick = async (event) => {
+        event.preventDefault();
+        
         try {
-            const response = await axios.post('https://localhost:7130/api/Orders', {
+            const response = await axios.post('https://localhost:7130/api/Order', {
                 stadiumId: id,
                 selectedOrderTime: selectedOrderTime
             });
-
+    
             console.log('Order placed successfully:', response.data);
         } catch (error) {
             console.error('Error placing order:', error);
         }
     };
-
     useEffect(() => {
         axios.get(`https://localhost:7130/api/Stadium/GetStadium?id=${id}`)
             .then(res => {
@@ -92,7 +93,7 @@ const StadionInfo = () => {
                                 <p>Pulsuz cekilis</p>
                             </div>
                             <div className="v">
-                                <button onClick={handleOrderButtonClick}><p>Sifaris et!</p></button>
+                            <button onClick={(event) => handleOrderButtonClick(event)}><p>Sifaris et!</p></button>
                             </div>
 
                         </div>

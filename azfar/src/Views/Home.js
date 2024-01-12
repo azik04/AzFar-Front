@@ -1,10 +1,10 @@
 import React from 'react';
 import Card from '../component/Card'
-
 const Home = () => {
+
     return (
 <div>
-    <header className="haqqimizda">
+    <div className="haqqimizda">
         <div className="haqqimizda_info">
             <div className="haqqimizda_info_img">
                 <img src="http://www.azfar.az/img/logo.png" alt="" width="160px"/>
@@ -17,7 +17,7 @@ const Home = () => {
                 <a href="http://localhost:3000/Stadiums">Stadionu sec!</a>
             </div>
         </div>
-    </header>
+    </div>
     <section className="zelda">
     <div className="carousel" aria-label="Gallery">
         <ol className="carousel__viewport">
@@ -123,9 +123,8 @@ const Home = () => {
     </section>
     <section className="stadion">
         <h2>Stadionu sifaris ele!!!</h2>
-        <div className="stadion_all">
-        <Card numberOfCards={3} />
-        </div>
+            <Card numberOfCards={3}/>
+     
     </section>
 </div>
     );

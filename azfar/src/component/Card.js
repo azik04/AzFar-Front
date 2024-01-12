@@ -30,7 +30,7 @@ const Card = ({ numberOfCards }) => {
           key={card.id}
         >
           <div className="stadion_bir_img">
-          <img src={"https://localhost:7130//" + card.stadiumPhoto[0].stadiumPhoto} alt="" width="100%" />
+          {/* <img src="image/hgsh/"+{card.stadiumPhoto[0].stadiumPhoto} alt="" width="100%" /> */}
           
 
           </div>
