@@ -30,7 +30,7 @@ useEffect(() => {
           <div className="stadion_bir_img">
           {card.stadiumPhoto && card.stadiumPhoto[0] ? (
   <img
-    src={`https://localhost:7130/api/Stadium/GetStadiums/${card.stadiumPhoto[0].stadiumPhoto}`}
+    src={`https://localhost:7130/upload/${card.stadiumPhoto[0].stadiumPhoto}`}
     alt=""
     width="100%"
   />

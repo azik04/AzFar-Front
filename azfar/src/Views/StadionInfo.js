@@ -46,7 +46,7 @@ const StadionInfo = () => {
             <h1>Sifaris et!!!</h1>
             <div className="stadion_sifarisi_all">
                 <div className="stadion_sifarisi_img">
-                    <img src="http://www.azfar.az/files/stadium/main_galery_stadium_146668817525804.jpg" alt="" />
+                <img src={`https://localhost:7130/upload/${stadiumData.stadiumPhotoName}`} alt="" />
                 </div>
                 <div className="stadion_sifarisi_txt">
                     <div className="c">

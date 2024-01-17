@@ -10,31 +10,34 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
-    event.preventDefault();
-    
-    setPhoneError('');
-    setPasswordError('');
+  event.preventDefault();
 
-    try {
-      const response = await axios.post('https://localhost:7130/api/Account/login', {
-        phone: phone,
-        password: password,
-      });
-  
-      if (response.status === 200) {
-        if (response.data && response.data.message === 'success') {
-          navigate('/Home');
-        } else {
-          console.error('Login failed. Unexpected response structure:', response.data);
-        }
+  setPhoneError('');
+  setPasswordError('');
+
+  try {
+    const response = await axios.post('https://localhost:7130/api/Account/login', {
+      phone: phone,
+      password: password,
+    });
+
+    if (response.status === 200) {
+      if (response.data && response.data.token) {
+        const token = response.data.token;
+        localStorage.setItem('jwtToken', token);
+        navigate('/Home');
+      } else if (response.data && response.data.message === 'success') {
+        navigate('/Home');
+      } else {
+        console.error('Login failed. Unexpected response structure:', response.data);
       }
-    } catch (error) {
-      console.error('Error during login:', error);
-      setPhoneError('phone number not found.');
-      setPasswordError('Passwor is wrong')
     }
+  } catch (error) {
+    console.error('Error during login:', error);
+    setPhoneError('Phone number not found.');
+    setPasswordError('Password is wrong');
   };
-
+};
   return (
     <form className="LogIn">
       <div className="img_txt">

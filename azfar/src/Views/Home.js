@@ -1,7 +1,33 @@
-import React from 'react';
-import Card from '../component/Card'
-const Home = () => {
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Card from '../component/Card';
 
+const Home = () => {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('jwtToken');
+
+    if (token) {
+      // Include the token in the request headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      axios.get('https://localhost:7130/api/Account/user', config)
+        .then(res => {
+          console.log(res.data);
+          setUser(res.data);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    } else {
+      console.error('No token found. User not authenticated.');
+    }
+  }, []);
     return (
 <div>
     <div className="haqqimizda">
