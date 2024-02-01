@@ -13,7 +13,7 @@ const Home = () => {
                 <p>Şirkətimiz bu illər ərzində uğurla fəaliyyət göstərərək ölkəmizdə həvəskar futbolun inkişafına və idmana olan marağın artırılmasına böyük töhvə vermişdir.</p>
                 <p>Bu istiqamətdə Azfar Group beynəlxalq təcrübədən (dəqiq mühəndis hesablamaları) yararlanır, müasir standartlara cavab verən tikinti materiallarından (son nəsil süni ot örtüyü, xüsusi konstruksiyalar) istifadə edir və müştərilərə təklif etdiyi xidmətlər paketini (istirahət zonası, avtodayanacaq, açıq və qapalı tipli stadionlar) daim genişləndirir.</p>
             </div>
-            <div class="haq_a">
+            <div className="haq_a">
                 <a href="http://localhost:3000/Stadiums">Stadionu sec!</a>
             </div>
         </div>
@@ -21,24 +21,24 @@ const Home = () => {
     <section className="zelda">
     <div className="carousel" aria-label="Gallery">
         <ol className="carousel__viewport">
-            <li id="carousel__slide1" tabindex="0" className="carousel__slide">
-            <div class="carousel__snapper">
+          <li id="carousel__slide1" tabIndex="0" className="carousel__slide">
+            <div className="carousel__snapper">
                 <a href="#carousel__slide4" className="carousel__prev"><img src="https://victorycup.ru/wp-content/uploads/2019/01/aquatic-palace7.jpeg" width="100%" height="100%" alt=""></img></a>
                 <a href="#carousel__slide2" className="carousel__next">Go to next slide</a>
             </div>
           </li>
-          <li id="carousel__slide2" tabindex="0" className="carousel__slide">
+          <li id="carousel__slide2" tabIndex="0" className="carousel__slide">
             <div className="carousel__snapper"></div>
                 <a href="#carousel__slide1" className="carousel__prev"><img src="https://bakuplus.az/wp-content/uploads/2023/06/hddddd.jpg" height="100%" width="100%" alt=""></img></a>
                 <a href="#carousel__slide3" className="carousel__next">Go to next slide</a>
           </li>
-          <li id="carousel__slide3" tabindex="0" className="carousel__slide">
+          <li id="carousel__slide3" tabIndex="0" className="carousel__slide">
             <div className="carousel__snapper"></div>
                 <a href="#carousel__slide2" className="carousel__prev"><img src="https://www.mys.gov.az/uploaded/sport-venue-image/gdgccSEsnhdK_medium-9_main.jpg" width="100%" height="100%" alt=""></img></a>
                 <a href="#carousel__slide4" className="carousel__next">Go to next slide</a>
           </li>
-          <li id="carousel__slide4" tabindex="0" className="carousel__slide">
-                <div claclassNamess="carousel__snapper"></div>
+          <li id="carousel__slide4" tabIndex="0" className="carousel__slide">
+                <div className="carousel__snapper"></div>
                     <a href="#carousel__slide3" className="carousel__prev"><img src="https://www.bookteq.com/wp-content/uploads/2023/02/2.png" width="100%" height="100%" alt=""></img></a>
                     <a href="#carousel__slide1" className="carousel__next">Go to first slide</a>
             </li>

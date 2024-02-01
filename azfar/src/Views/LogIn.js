@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -10,49 +10,36 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
+    console.log('handleLogin function is called');
     event.preventDefault();
-
+  
     setPhoneError('');
     setPasswordError('');
-
+  
     try {
       const response = await axios.post('https://localhost:7130/api/Account/login', {
-        phone: phone,
-        password: password,
-      }, {});
-      
-      console.log(response.config.data);
+  phone: phone,
+  password: password,
+}, { withCredentials: true });
 
-      if (response.status === 200) {
-        if (response.data && response.data.message === 'success') {
-          const JWTToken = response.data.token;
+console.log(response.data.token);
 
-          try {
-            const profileResponse = await axios.get('https://localhost:7130/api/Account/user', {
-              headers: { "Authorization": `Bearer ${JWTToken}` },
-            });
-            const userProfile = profileResponse.data;
-            console.log('User Profile:', userProfile);
-            navigate('/Home');
-          }
-          catch (profileError) {
-            
-            console.error('Error fetching user profile:', profileError);
-          }
-        } else {
-          console.error('Login failed. Unexpected response structure:', response.data);
-        }
-      }
+if (response.data.message === 'success') {
+  if (response.data && response.data.token) {
+    const token = response.data.token;
+    console.log('Token received from the server:', token);
+    localStorage.setItem('token', JSON.stringify(token));
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    console.log(response);
+    navigate('/Home');
+  } else {
+    console.error('Login failed. Token not found in the response:', response.data);
+  }
+} else {
+  console.error('Login failed. Unexpected response status:', response.status);
+}
     } catch (error) {
-      console.error('Error during login:', error);
-
-      if (error.response && error.response.status === 401) {
-        setPhoneError('Invalid phone number or password.');
-        setPasswordError('Invalid phone number or password.');
-      } else {
-        setPhoneError('Unexpected error occurred.');
-        setPasswordError('Unexpected error occurred.');
-      }
+      console.error('An error occurred during login:', error);
     }
   };
   return (
@@ -77,12 +64,7 @@ const LogIn = () => {
               <span className="error_sp">{phoneError}</span>
             </div>
             <div className="LogIn_txt_inp">
-              <input
-                type="password"
-                placeholder="Password"
-                required
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <input type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)}/>
               <br />
               <span className="error_sp">{passwordError}</span>
             </div>
@@ -99,4 +81,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default LogIn;    

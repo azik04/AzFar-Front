@@ -34,9 +34,6 @@ const Contact = () => {
                 <p>Çağrı mərkəzinin iş saatları</p>
                 <p>Həftəiçi: 10:00-18:00 | Şənbə: 10:00-16:00</p>
             </div>
-            <div>
-                
-            </div>
         </div>
     </section>
         </div>

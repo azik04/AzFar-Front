@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Views/Home';
 import Contact from './Views/Contact';
@@ -9,25 +9,25 @@ import Admin from './Views/Admin';
 import Register from './Views/Register';
 import LogIn from './Views/LogIn';
 import Order from './Views/Order';
-import axios from 'axios';
-
+import PrivateRoutes from './utils/PrivateRoutes'
 const App = () => {
- 
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='Register' element={<Register />} />
-          <Route path="LogIn" element={<LogIn />} />
+          <Route path="register" element={<Register />} />
+            <Route index element={<LogIn />} />
+            <Route path="login" element={<LogIn />} />
+          {/* <Route element={<PrivateRoutes />}> */}
           <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-            <Route path="Home" element={<Home />} />
-            <Route path="Contact" element={<Contact />} />
-            <Route path="StadionInfo/:id" element={<StadionInfo />} />
-            <Route path="Stadiums" element={<Stadiums />} />
-            <Route path='Admin' element={<Admin />} />
-            <Route path="Order/:id" element={<Order />} />
+            <Route path="home" element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="stadioninfo/:id" element={<StadionInfo />} />
+            <Route path="stadiums" element={<Stadiums />} />
+            <Route path="admin" element={<Admin />} />
+            <Route path="order" element={<Order />} />
           </Route>
+          {/* </Route> */}
         </Routes>
       </BrowserRouter>
     </div>
