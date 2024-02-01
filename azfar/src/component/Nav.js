@@ -1,4 +1,5 @@
 import axios from 'axios';
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
@@ -6,6 +7,13 @@ import { jwtDecode } from 'jwt-decode';
 const Nav = () => {
   const [logOut, setLogOut] = useState(false);
   const [userRole, setUserRole] = useState(null);
+=======
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+const Nav = () => {
+  const [logOut, setLogOut] = useState();
+>>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
   const navigate = useNavigate();
 
   const handleLogout = async (event) => {
@@ -29,6 +37,7 @@ const Nav = () => {
       console.error('Error during logout:', error);
     }
   };
+<<<<<<< HEAD
   useEffect(() => {
     const token = localStorage.getItem('token')?.replace(/"/g, '');
 
@@ -39,6 +48,8 @@ const Nav = () => {
       setUserRole(decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']);
     }
   }, []);
+=======
+>>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
 
   return (
     <nav>
@@ -56,6 +67,7 @@ const Nav = () => {
             <li><NavLink to="/Stadiums">Stadiums</NavLink></li>
             <li><NavLink to="/Order">Sifarisler</NavLink></li>
             {userRole === '2' && <li><NavLink to="/Admin">Admin</NavLink></li>}
+            <li><NavLink to="/Admin">Admin</NavLink></li>
           </ul>
         </div>
         <button className="navbar_logOut" onClick={(event) => handleLogout(event)}>

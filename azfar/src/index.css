@@ -1319,6 +1319,7 @@ text-align: center;
 .sifarispage_one_img img{
   border-radius: 0.25cm;
 }
+<<<<<<< HEAD
 .navbar_logOut{
   display: flex;
   margin-right: 50px;
@@ -1360,9 +1361,36 @@ text-align: center;
   background-color: white;
   color: #dc265a;
 }
+=======
+>>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
 .sifarispage_naming{
   padding-bottom: 15px;
   border-bottom: 1px solid #dc265a;
   width:100%;
   margin: auto;
+<<<<<<< HEAD
+=======
+}
+.navbar_logOut{
+  display: flex;
+  padding: 12px 18px;
+  background-color: #dc265a;
+  border-radius: 0.15cm;
+  color: white;
+  border: 1px solid white;
+  align-items: center;
+ margin-right: 70px;
+ transition: 0.5s;
+ cursor: pointer;
+}
+.navbar_logOut p {
+  padding-left: 9px;
+}
+.navbar_logOut:hover{
+  background-color: white;
+  color: #dc265a;
+}
+.navbar_menu{
+  padding-left: 40px;
+>>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
 }

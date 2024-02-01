@@ -9,7 +9,11 @@ import Admin from './Views/Admin';
 import Register from './Views/Register';
 import LogIn from './Views/LogIn';
 import Order from './Views/Order';
+<<<<<<< HEAD
 import PrivateRoutes from './utils/PrivateRoutes'
+=======
+
+>>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
 const App = () => {
   return (
     <div>
@@ -18,7 +22,10 @@ const App = () => {
           <Route path="register" element={<Register />} />
             <Route index element={<LogIn />} />
             <Route path="login" element={<LogIn />} />
+<<<<<<< HEAD
           {/* <Route element={<PrivateRoutes />}> */}
+=======
+>>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
           <Route path="/" element={<Layout />}>
             <Route path="home" element={<Home />} />
             <Route path="contact" element={<Contact />} />
@@ -27,7 +34,10 @@ const App = () => {
             <Route path="admin" element={<Admin />} />
             <Route path="order" element={<Order />} />
           </Route>
+<<<<<<< HEAD
           {/* </Route> */}
+=======
+>>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
         </Routes>
       </BrowserRouter>
     </div>
