@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
-=======
 import React, { useState } from 'react';
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,7 +11,6 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
-<<<<<<< HEAD
     console.log('handleLogin function is called');
     event.preventDefault();
   
@@ -47,36 +43,7 @@ if (response.data.message === 'success') {
       console.error('An error occurred during login:', error);
     }
   };
-=======
-  event.preventDefault();
-
-  setPhoneError('');
-  setPasswordError('');
-
-  try {
-    const response = await axios.post('https://localhost:7130/api/Account/login', {
-      phone: phone,
-      password: password,
-    });
-
-    if (response.status === 200) {
-      if (response.data && response.data.token) {
-        const token = response.data.token;
-        localStorage.setItem('jwtToken', token);
-        navigate('/Home');
-      } else if (response.data && response.data.message === 'success') {
-        navigate('/Home');
-      } else {
-        console.error('Login failed. Unexpected response structure:', response.data);
-      }
-    }
-  } catch (error) {
-    console.error('Error during login:', error);
-    setPhoneError('Phone number not found.');
-    setPasswordError('Password is wrong');
-  };
-};
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
+ 
   return (
     <form className="LogIn">
       <div className="img_txt">
@@ -99,16 +66,13 @@ if (response.data.message === 'success') {
               <span className="error_sp">{phoneError}</span>
             </div>
             <div className="LogIn_txt_inp">
-<<<<<<< HEAD
               <input type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)}/>
-=======
               <input
                 type="password"
                 placeholder="Password"
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
               <br />
               <span className="error_sp">{passwordError}</span>
             </div>

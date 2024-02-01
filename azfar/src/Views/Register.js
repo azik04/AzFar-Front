@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -14,19 +13,7 @@ const Register = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-=======
 
-const Register = () => {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [phoneError, setPhoneError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [nameError, setNameError] = useState('');
-  const navigate = useNavigate();
-
-  const handleRegister = async () => {
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
     try {
       const response = await axios.post('https://localhost:7130/api/Account/register', {
         name: name,
@@ -34,17 +21,15 @@ const Register = () => {
         password: password,
       });
   
-<<<<<<< HEAD
+
       if (response.status === 200){ 
           navigate('/LogIn');
-=======
       if (response.data && response.data.message === 'success') {
         navigate('/LogIn');
       } else {
         console.error('Registration failed. Unexpected response structure:', response.data);
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
       }
-    } catch (error) {
+    } }catch (error) {
       console.error('Error during registration:', error);
       setPhoneError('Phone number not found.');
       setPasswordError('Password is wrong');
@@ -79,11 +64,7 @@ const Register = () => {
               <span className="error_sp">{passwordError}</span>
             </div>
             <div className="LogIn_txt_inp">
-<<<<<<< HEAD
               <button onClick={(event) => handleRegister(event)}>Register</button>
-=======
-              <button onClick={() => handleRegister()}>Register</button>
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
             </div>
           </div>
         </div>

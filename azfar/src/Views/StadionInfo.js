@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD
 import { jwtDecode } from 'jwt-decode';
-=======
-
-
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
 const StadionInfo = () => {
     const [stadiumData, setStadiumData] = useState({});
     const [orderTimes, setOrderTimes] = useState([]);
@@ -16,21 +11,14 @@ const StadionInfo = () => {
     const handleOrderButtonClick = async (event) => {
         event.preventDefault();
         try {
-<<<<<<< HEAD
             const token = localStorage.getItem('token')?.replace(/"/g, '');
             const decodedToken = jwtDecode(token);
-            const response = await axios.post('https://localhost:7130/api/Order', {
-=======
+
             const response = await axios.post(`https://localhost:7130/api/Order`, {
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
                 stadiumId: id,
                 selectedOrderTime: selectedOrderTime,
                 userName: decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']
             });
-<<<<<<< HEAD
-=======
-    
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
             console.log('Order placed successfully:', response.data);
         } catch (error) {
             console.error('Error placing order:', error);

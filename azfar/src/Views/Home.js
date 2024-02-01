@@ -1,16 +1,6 @@
-<<<<<<< HEAD
 import React from 'react';
 import Card from '../component/Card'
 const Home = () => {
-
-=======
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Card from '../component/Card';
-
-const Home = () => {
-  const [user, setUser] = useState([]);
-
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
 
@@ -34,7 +24,6 @@ const Home = () => {
       console.error('No token found. User not authenticated.');
     }
   }, []);
->>>>>>> c0e2fcd6ff0e626835d715feef6016d3e1cca002
     return (
 <div>
     <div className="haqqimizda">
